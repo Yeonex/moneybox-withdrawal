@@ -1,3 +1,8 @@
+# Details
+When refactoring the code to make the models less susceptible to misuse, I set the setters of the Account class to private. Because of this, I have created a constructor for the Account class to allow the creation of accounts. 
+
+In the case of transferring money, if the checks where performed in the same method as the PayIn and Withdraw operations then there will be an issue where if the first operation success but the second fails, then we will have taken money out of one account but we wouldn't have added it to the other account. This is why I have  CheckIfLimitReached and CheckSufficientBalance separate. 
+
 # Moneybox Money Withdrawal
 
 The solution contains a .NET core library (Moneybox.App) which is structured into the following 3 folders:
